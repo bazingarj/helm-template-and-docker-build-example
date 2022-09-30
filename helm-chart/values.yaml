@@ -1,0 +1,26 @@
+meta:
+  name: nginx
+  label: nginx
+  namespace: staging
+  replicas: 1
+  maxReplicas: 1
+image:
+  repository: ACCOUNT_ID.dkr.ecr.AWS_REGION.amazonaws.com/nginx
+  tag: ""
+resources:
+  requests:
+    cpu: 200
+    memory: 256
+  limits:
+    cpu: 500
+    memory: 512
+  targetAverageUtilization: 80
+service:
+  type: NodePort
+  port: 80
+  targetport: 80
+ingress:
+  alb_certificate_arn: ""
+env:
+  DNS: ""
+
